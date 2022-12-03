@@ -19,7 +19,7 @@ func main() {
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
 
-    result := 0
+	result := 0
 
 	for scanner.Scan() {
 		text := scanner.Text()
@@ -46,15 +46,15 @@ func main() {
 			}
 		}
 
-        priority := func () (int) {
-            if unicode.IsLower(uniqueChar) {
-                return int(uniqueChar) - 96
-            } else {
-                return int(uniqueChar) - 38
-            }
-        } ()
+		priority := func() int {
+			if unicode.IsLower(uniqueChar) {
+				return int(uniqueChar) - 96
+			} else {
+				return int(uniqueChar) - 38
+			}
+		}()
 
-        result += priority
+		result += priority
 	}
 
 	fmt.Println("Sum of the priorities is", result)

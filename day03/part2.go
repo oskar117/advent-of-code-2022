@@ -20,13 +20,13 @@ func main() {
 	scanner.Split(bufio.ScanLines)
 
 	var lines []string
-    result := 0
+	result := 0
 
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
 
-	for i:= 0; i < len(lines); i+=3 {
+	for i := 0; i < len(lines); i += 3 {
 		first_elf := lines[i]
 		second_elf := lines[i+1]
 		third_elf := lines[i+2]
@@ -40,13 +40,13 @@ func main() {
 			}
 		}
 
-        result += func () (int) {
-            if unicode.IsLower(uniqueChar) {
-                return int(uniqueChar) - 96
-            } else {
-                return int(uniqueChar) - 38
-            }
-        } ()
+		result += func() int {
+			if unicode.IsLower(uniqueChar) {
+				return int(uniqueChar) - 96
+			} else {
+				return int(uniqueChar) - 38
+			}
+		}()
 	}
 
 	fmt.Println("Sum of the priorities is", result)
